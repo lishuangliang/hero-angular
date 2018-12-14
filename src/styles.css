@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+ul,li{
+  list-style: none;
+}
+
+button{
+  background-color: #ccc;
+  border: none;
+  padding: 8px 12px;
+  color: #333;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}

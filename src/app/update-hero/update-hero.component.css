@@ -1,0 +1,14 @@
+button{
+  margin:6px 6px 0 0;
+}
+input{
+  margin: 12px 2px 0 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  height: 30px;
+}
+.m-update-hero{
+  padding: 12px;
+  box-sizing: border-box;
+}
+

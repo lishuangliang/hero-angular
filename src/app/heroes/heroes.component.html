@@ -1,0 +1,22 @@
+
+<div class="m-heroes" *ngIf="heroes.length">
+  <ul >
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/update-hero/{{hero.id}}">
+        <span class="hero-id">{{hero.id}}</span>&nbsp;&nbsp;
+        <span class="hero-name">{{hero.name}}</span>
+      </a>
+      <button (click)="deleteHero(hero)" class="btn-del-hero">delete</button>
+    </li>
+  </ul>
+  <button routerLink="/update-hero">addHero</button>
+
+</div>
+
+
+<div class="m-form" *ngIf="selectedHero">
+  <h2>name: {{selectedHero.name | uppercase}}</h2>
+  <div class="update">
+    <input type="text" [(ngModel)]="selectedHero.name">
+  </div>
+</div>

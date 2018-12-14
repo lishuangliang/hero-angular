@@ -1,0 +1,28 @@
+.m-heroes{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30%;
+  top: 80px;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.m-heroes li{
+  padding: 6px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.m-heroes li:nth-child(even){
+  background-color: #f2f2f2;
+}
+.m-heroes li.selected{
+  background-color: #eee;
+}
+.m-heroes li span{
+  line-height: 34px;
+}
+
+.m-heroes li .btn-del-hero{
+  float: right;
+}
