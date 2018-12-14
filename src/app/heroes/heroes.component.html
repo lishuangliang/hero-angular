@@ -1,5 +1,5 @@
 
-<div class="m-heroes" *ngIf="heroes.length">
+<div class="m-heroes" *ngIf="heroes && heroes.length">
   <ul >
     <li *ngFor="let hero of heroes">
       <a routerLink="/update-hero/{{hero.id}}">
@@ -9,7 +9,12 @@
       <button (click)="deleteHero(hero)" class="btn-del-hero">delete</button>
     </li>
   </ul>
-  <button routerLink="/update-hero">addHero</button>
+
+  <div>
+    <label>Hero name:</label>
+    <input #heroName>
+    <button (click)="addHero(heroName.value); heroName.value = ''">add</button>
+  </div>
 
 </div>
 

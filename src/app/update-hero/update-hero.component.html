@@ -3,7 +3,7 @@
     <button (click)="goBack()">back</button>
   </li>
   <li>
-    <input type="text" placeholder="keyup hero" [(ngModel)]="updateHeroName">
+    <input type="text" placeholder="keyup hero" [(ngModel)]="currHero && currHero.name">
     <button (click)="addHero()">sure</button>
   </li>
   <li>

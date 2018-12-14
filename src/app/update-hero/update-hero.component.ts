@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {Hero} from '../Hero';
 import {HeroService} from '../hero.service';
+import {heroes} from '../mock-hero';
 
 @Component({
   selector: 'app-update-hero',
@@ -11,7 +12,7 @@ import {HeroService} from '../hero.service';
 })
 export class UpdateHeroComponent implements OnInit {
   currId: number;
-  updateHeroName: string;
+  currHero: Hero;
   heroes: Hero[];
   constructor(
     private location: Location,
@@ -24,20 +25,17 @@ export class UpdateHeroComponent implements OnInit {
   }
   getHero(): void {
      this.heroServer.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
-    this.currId = +this.route.snapshot.paramMap.get('id');
-    if (this.currId > 0) {
-      this.updateHeroName = this.heroes.find(hero => hero.id === this.currId).name;
-    }
+      .subscribe(heroes => {
+        this.heroes = heroes;
+        this.currId = +this.route.snapshot.paramMap.get('id');
+        if (this.currId > 0) {
+          this.currHero = this.heroes.find(hero => hero.id === this.currId);
+        }
+      });
   }
   addHero(): void {
-    if (this.currId > 0) {
-      this.heroes.find(hero => hero.id === this.currId).name = this.updateHeroName;
-    } else {
-      this.heroes.push({id : Math.max(...this.heroes.map(hero => hero.id)) + 1, name: this.updateHeroName});
-    }
-    this.updateHeroName = '';
-    this.goBack();
+    this.heroServer.updateHero(this.currHero)
+      .subscribe(() => this.goBack());
   }
   goBack(): void {
     this.location.back();

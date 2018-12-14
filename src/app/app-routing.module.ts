@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {HeroesComponent} from './heroes/heroes.component';
 import {UpdateHeroComponent} from './update-hero/update-hero.component';
+import {SearchHeroComponent} from './search-hero/search-hero.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path : 'update-hero/:id',
     component : UpdateHeroComponent
+  },
+  {
+    path : 'search-hero',
+    component : SearchHeroComponent
   },
   {
     path : '',
